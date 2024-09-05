@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VentureLabs.ai - AI-Powered Pitch Decks</title>
+    <title>VentureLabs.ai - Custom AI-Powered Pitch Decks</title>
     <style>
         :root {
             --primary-color: #3498db;
             --secondary-color: #2c3e50;
             --accent-color: #e74c3c;
-            --promo-color: #27ae60;
             --background-color: #ecf0f1;
             --text-color: #34495e;
+            --light-bg: #f8f9fa;
         }
         body {
             font-family: 'Arial', sans-serif;
@@ -22,7 +22,7 @@
             background-color: var(--background-color);
         }
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 1200px;
             margin: auto;
             overflow: hidden;
@@ -60,43 +60,40 @@
             font-size: 1.1rem;
             text-decoration: none;
             transition: background 0.3s ease;
+            border-radius: 5px;
         }
         .btn:hover {
             background: #c0392b;
         }
-        .features, .pricing, .portfolio, .contact, .questionnaire {
+        section {
             padding: 4rem 0;
-        }
-        .features, .portfolio {
             background: white;
         }
-        .feature-grid, .pricing-grid, .portfolio-grid {
+        section:nth-child(even) {
+            background: var(--light-bg);
+        }
+        h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        .feature, .price-tier, .portfolio-item {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
+        .card {
+            background: white;
+            padding: 1rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        .feature h3, .price-tier h3, .portfolio h2, .contact h2, .questionnaire h2 {
-            color: var(--secondary-color);
+        .card:hover {
+            transform: translateY(-5px);
         }
-        .price-tier {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .price {
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-        .portfolio-item img {
-            max-width: 100%;
+        .card img {
+            width: 100%;
             height: auto;
             border-radius: 4px;
         }
@@ -105,55 +102,17 @@
             gap: 1rem;
             max-width: 600px;
             margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         input, textarea, select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-        }
-        footer {
-            background: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .promo-tier {
-            background-color: var(--promo-color);
-            color: white;
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-        .promo-tier:hover {
-            transform: scale(1.1);
-        }
-        .promo-tier .btn {
-            background-color: white;
-            color: var(--promo-color);
-        }
-        .promo-tier .btn:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        .sale-banner {
-            background-color: var(--accent-color);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-        }
-        .contact-info {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-        .questionnaire form {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 1rem;
         }
         .form-section {
             margin-bottom: 2rem;
@@ -164,25 +123,74 @@
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        .form-group .hint {
+        .hint {
             font-size: 0.8rem;
             color: #666;
             margin-top: 0.25rem;
         }
+        .style-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .style-option {
+            display: flex;
+            align-items: center;
+        }
+        .style-option input {
+            margin-right: 0.5rem;
+        }
+        .color-inputs {
+            display: flex;
+            gap: 1rem;
+        }
+        .color-input {
+            display: flex;
+            align-items: center;
+        }
+        .color-input input[type="color"] {
+            margin-right: 0.5rem;
+        }
+        .example-uploads {
+            margin-top: 1rem;
+        }
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 4px;
+        }
+        .faq-answer {
+            display: none;
+            padding: 1rem;
+            background: white;
+            border-radius: 0 0 4px 4px;
+        }
+        #live-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-    <div class="sale-banner">
-        🚀 Limited Time Offer: New Founder Mode Available! 🚀
-    </div>
     <header>
         <div class="container">
             <h1>VentureLabs.ai</h1>
@@ -197,183 +205,181 @@
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
+    <section id="pricing">
         <div class="container">
             <h2>Choose Your Turnaround Time</h2>
-            <div class="pricing-grid">
-                <div class="price-tier">
+            <div class="grid">
+                <div class="card">
                     <h3>Standard</h3>
                     <p class="price">$199</p>
                     <p>12-hour turnaround</p>
                     <a href="#questionnaire" class="btn">Get Started</a>
                 </div>
-                <div class="price-tier">
+                <div class="card">
                     <h3>Express</h3>
                     <p class="price">$399</p>
                     <p>8-hour turnaround</p>
                     <a href="#questionnaire" class="btn">Get Started</a>
                 </div>
-                <div class="price-tier">
+                <div class="card">
                     <h3>Rush Mode</h3>
                     <p class="price">$599</p>
                     <p>6-hour turnaround</p>
                     <a href="#questionnaire" class="btn">Get Started</a>
                 </div>
-                <div class="price-tier promo-tier">
+                <div class="card" style="background-color: var(--primary-color); color: white;">
                     <h3>Founder Mode</h3>
                     <p class="price">$799</p>
                     <p>4-hour turnaround</p>
                     <p><strong>New!</strong> Limited Time Offer</p>
-                    <a href="#questionnaire" class="btn">Get Started</a>
+                    <a href="#questionnaire" class="btn" style="background-color: white; color: var(--primary-color);">Get Started</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="questionnaire" class="questionnaire">
+    <section id="portfolio">
+        <div class="container">
+            <h2>Our Versatile Portfolio</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Modern Tech Pitch Deck">
+                    <h3>Modern Tech Startup</h3>
+                </div>
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Classic Finance Pitch Deck">
+                    <h3>Classic Finance Presentation</h3>
+                </div>
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Bold Marketing Pitch Deck">
+                    <h3>Bold Marketing Strategy</h3>
+                </div>
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Minimalist Design Pitch Deck">
+                    <h3>Minimalist Product Launch</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            <div class="grid">
+                <div class="card">
+                    <p>"They perfectly captured our vision, even with our unique style requirements!"</p>
+                    <p>- Sarah J., Tech Startup Founder</p>
+                </div>
+                <div class="card">
+                    <p>"Flexible, responsive, and delivered beyond our expectations."</p>
+                    <p>- Michael R., Marketing Director</p>
+                </div>
+                <div class="card">
+                    <p>"Accommodated our last-minute changes without compromising quality."</p>
+                    <p>- Lisa T., Non-Profit Organization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="questionnaire">
         <div class="container">
             <h2>Pitch Deck Questionnaire</h2>
             <form id="pitch-deck-form">
                 <div class="form-section">
                     <h3>1. Company Overview</h3>
-                    <div class="form-group">
-                        <label for="company_name">Company Name</label>
-                        <input type="text" id="company_name" name="company_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company_tagline">Tagline or One-Sentence Description</label>
-                        <input type="text" id="company_tagline" name="company_tagline" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company_vision">Company Vision</label>
-                        <textarea id="company_vision" name="company_vision" required></textarea>
-                        <div class="hint">What's the long-term goal or impact of your company?</div>
-                    </div>
+                    <input type="text" name="company_name" placeholder="Company Name" required>
+                    <textarea name="company_vision" placeholder="What's your company's vision?" rows="3" required></textarea>
                 </div>
 
                 <div class="form-section">
                     <h3>2. Problem & Solution</h3>
-                    <div class="form-group">
-                        <label for="problem">Problem You're Solving</label>
-                        <textarea id="problem" name="problem" required></textarea>
-                        <div class="hint">Describe the main problem your product/service addresses.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="solution">Your Solution</label>
-                        <textarea id="solution" name="solution" required></textarea>
-                        <div class="hint">How does your product/service solve this problem?</div>
-                    </div>
+                    <textarea name="problem" placeholder="Describe the main problem your product/service addresses." required></textarea>
+                    <textarea name="solution" placeholder="How does your product/service solve this problem?" required></textarea>
                 </div>
 
                 <div class="form-section">
                     <h3>3. Market & Competition</h3>
-                    <div class="form-group">
-                        <label for="target_market">Target Market</label>
-                        <textarea id="target_market" name="target_market" required></textarea>
-                        <div class="hint">Describe your ideal customer and market size.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="competitors">Main Competitors</label>
-                        <textarea id="competitors" name="competitors" required></textarea>
-                        <div class="hint">List your main competitors and your competitive advantage.</div>
-                    </div>
+                    <textarea name="target_market" placeholder="Describe your ideal customer and market size." required></textarea>
+                    <textarea name="competitors" placeholder="List your main competitors and your competitive advantage." required></textarea>
                 </div>
 
                 <div class="form-section">
                     <h3>4. Business Model & Traction</h3>
-                    <div class="form-group">
-                        <label for="business_model">Business Model</label>
-                        <textarea id="business_model" name="business_model" required></textarea>
-                        <div class="hint">How do you make money? What's your pricing strategy?</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="traction">Traction & Milestones</label>
-                        <textarea id="traction" name="traction" required></textarea>
-                        <div class="hint">Key metrics, achievements, or milestones reached so far.</div>
-                    </div>
+                    <textarea name="business_model" placeholder="How do you make money? What's your pricing strategy?" required></textarea>
+                    <textarea name="traction" placeholder="Key metrics, achievements, or milestones reached so far." required></textarea>
                 </div>
 
                 <div class="form-section">
                     <h3>5. Team</h3>
-                    <div class="form-group">
-                        <label for="team_members">Key Team Members</label>
-                        <textarea id="team_members" name="team_members" required></textarea>
-                        <div class="hint">List key team members with their roles and brief backgrounds.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="team_photos">Team Photos</label>
-                        <input type="file" id="team_photos" name="team_photos" accept="image/*" multiple>
-                        <div class="hint">Upload photos of key team members (optional).</div>
-                    </div>
+                    <textarea name="team_members" placeholder="List key team members with their roles and brief backgrounds." required></textarea>
+                    <input type="file" name="team_photos" accept="image/*" multiple>
+                    <div class="hint">Upload photos of key team members (optional).</div>
                 </div>
 
                 <div class="form-section">
                     <h3>6. Financials & Funding</h3>
-                    <div class="form-group">
-                        <label for="financials">Financial Projections</label>
-                        <textarea id="financials" name="financials"></textarea>
-                        <div class="hint">Summarize your financial projections for the next 3-5 years.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="funding_ask">Funding Ask</label>
-                        <input type="text" id="funding_ask" name="funding_ask">
-                        <div class="hint">How much are you raising and what will it be used for?</div>
-                    </div>
+                    <textarea name="financials" placeholder="Summarize your financial projections for the next 3-5 years."></textarea>
+                    <input type="text" name="funding_ask" placeholder="How much are you raising and what will it be used for?">
                 </div>
 
                 <div class="form-section">
-                    <h3>7. Pitch Deck Preferences</h3>
+                    <h3>7. Pitch Deck Style Preferences</h3>
                     <div class="form-group">
-                        <label for="deck_style">Preferred Style or Theme</label>
-                        <input type="text" id="deck_style" name="deck_style">
-                        <div class="hint">Any specific style, colors, or themes you prefer?</div>
+                        <label>Preferred Style</label>
+                        <div class="style-options">
+                            <div class="style-option">
+                                <input type="checkbox" id="style-modern" name="style-modern">
+                                <label for="style-modern">Modern</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-classic" name="style-classic">
+                                <label for="style-classic">Classic</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-minimalist" name="style-minimalist">
+                                <label for="style-minimalist">Minimalist</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-bold" name="style-bold">
+                                <label for="style-bold">Bold</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-textured" name="style-textured">
+                                <label for="style-textured">Textured</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="specific_requests">Additional Requests or Information</label>
-                        <textarea id="specific_requests" name="specific_requests"></textarea>
-                        <div class="hint">Any other specific elements you want in your pitch deck?</div>
+                        <label>Color Preferences</label>
+                        <div class="color-inputs">
+                            <div class="color-input">
+                                <input type="color" id="primary-color" name="primary-color">
+                                <label for="primary-color">Primary Color</label>
+                            </div>
+                            <div class="color-input">
+                                <input type="color" id="secondary-color" name="secondary-color">
+                                <label for="secondary-color">Secondary Color</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="style-description">Additional Style Details</label>
+                        <textarea id="style-description" name="style-description" placeholder="Describe any specific textures, patterns, or design elements you'd like (e.g., leather texture, gradient backgrounds, etc.)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Example Uploads</label>
+                        <div class="example-uploads">
+                            <input type="file" id="example-upload-1" name="example-upload-1" accept="image/*">
+                            <input type="file" id="example-upload-2" name="example-upload-2" accept="image/*">
+                            <input type="file" id="example-upload-3" name="example-upload-3" accept="image/*">
+                        </div>
+                        <div class="hint">Upload up to 3 images of pitch decks or designs you like. This helps us understand your preferences and reduces the need for revisions.</div>
                     </div>
                 </div>
 
                 <div class="form-section">
                     <h3>8. Turnaround Time</h3>
-                    <div class="form-group">
-                        <label for="turnaround">Select Turnaround Time</label>
-                        <select id="turnaround" name="turnaround" required>
-                            <option value="">Choose an option</option>
-                            <option value="12">Standard: 12 hours - $199</option>
-                            <option value="8">Express: 8 hours - $399</option>
-                            <option value="6">Rush Mode: 6 hours - $599</option>
-                            <option value="4">Founder Mode: 4 hours - $799 (Limited Time Offer)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn">Submit Pitch Deck Request</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <h3>Nicholas Del Negro</h3>
-                <p>Email: Nicholasdelnegro80@gmail.com</p>
-                <p>Phone: 772-828-7470</p>
-                <p>Location: Pompano Beach, FL</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 VentureLabs.ai. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const pitchDeckForm = document.getElementById('pitch-deck-form');
-            pitchDeckForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for submitting your pitch deck request! We will contact you shortly to discuss the details.');
-                pitchD
+                    <select name="turnaround" required>
+                        <option value="">Select Turnaround Time</option>
+                        <option value="12">Standard: 12 hours - $199</option>
