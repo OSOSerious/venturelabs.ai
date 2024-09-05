@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentureLabs.ai - AI-Powered Pitch Decks</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: var(--secondary-color);
+            padding: 1rem;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .hero {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #c0392b;
+        }
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        .feature h3 {
+            color: var(--secondary-color);
+        }
+        .contact {
+            background-color: var(--background-color);
+            padding: 4rem 0;
+        }
+        .contact h2 {
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+            margin: auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>VentureLabs.ai</h1>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Revolutionize Your Pitch Decks with AI</h2>
+            <p>Custom, AI-crafted pitch decks that mesmerize investors</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>AI-Powered Creativity</h3>
+                    <p>Harness the power of artificial intelligence to create unique and compelling pitch decks.</p>
+                </div>
+                <div class="feature">
+                    <h3>Customized for Every Client</h3>
+                    <p>Tailored designs that perfectly match your brand and business needs.</p>
+                </div>
+                <div class="feature">
+                    <h3>Efficient and Time-Saving</h3>
+                    <p>Get professional-quality pitch decks in a fraction of the time it takes to create them manually.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="company" placeholder="Company Name">
+                <textarea name="message" placeholder="How can we help you?" rows="4" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VentureLabs.ai. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! Our team will contact you shortly.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
