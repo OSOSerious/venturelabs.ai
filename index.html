@@ -131,6 +131,32 @@
         .slide-container:hover .slide-link {
             opacity: 1;
         }
+        .slide-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('path-to-your-image.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .slide-cover:hover {
+            opacity: 0.8;
+        }
+        
+        .slide-container.active .slide-cover {
+            display: none;
+        }
         /* ... (rest of the styles remain unchanged) ... */
     </style>
 </head>
@@ -188,6 +214,9 @@
             <div class="grid">
                 <div class="card">
                     <div class="slide-container">
+                        <div class="slide-cover">
+                            <p>Click to view our AI-Powered Pitch Deck Sample</p>
+                        </div>
                         <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRRf8DCdnuOxGOsjDr4ZgtRXbNY0AjL7L1C8-UPlgDRiWnIIIvtnELXDGHBIjJ0LCw3tEiGmqsjFBBw/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         <a href="https://docs.google.com/presentation/d/1pbF_pl1YkI5Ds_MpYFZs7xNkZEGaIy8-LsSV86FcMKw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="slide-link">View Full Presentation</a>
                     </div>
@@ -246,6 +275,9 @@
 
     <script>
         // Add any JavaScript you need here
+        document.querySelector('.slide-cover').addEventListener('click', function() {
+            this.parentElement.classList.add('active');
+        });
     </script>
 </body>
 </html>
