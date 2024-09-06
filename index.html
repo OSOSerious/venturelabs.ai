@@ -5,7 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VentureLabs.ai - Custom AI-Powered Pitch Decks</title>
     <style>
-        /* ... (previous styles remain unchanged) ... */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --light-bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: var(--secondary-color);
+            padding: 1rem;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .hero {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #c0392b;
+        }
+        section {
+            padding: 4rem 0;
+            background: white;
+        }
+        section:nth-child(even) {
+            background: var(--light-bg);
+        }
+        h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
         .slide-container {
             position: relative;
             width: 100%;
@@ -40,10 +131,56 @@
         .slide-container:hover .slide-link {
             opacity: 1;
         }
+        /* ... (rest of the styles remain unchanged) ... */
     </style>
 </head>
 <body>
-    <!-- ... (header and other sections remain unchanged) ... -->
+    <header>
+        <div class="container">
+            <h1>VentureLabs.ai</h1>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Revolutionize Your Pitch Decks with AI</h2>
+            <p>Custom, AI-crafted pitch decks that mesmerize investors</p>
+            <a href="#pricing" class="btn">See Our Pricing</a>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <h2>Choose Your Turnaround Time</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Standard</h3>
+                    <p class="price">$199</p>
+                    <p>12-hour turnaround</p>
+                    <a href="#questionnaire" class="btn">Get Started</a>
+                </div>
+                <div class="card">
+                    <h3>Express</h3>
+                    <p class="price">$399</p>
+                    <p>8-hour turnaround</p>
+                    <a href="#questionnaire" class="btn">Get Started</a>
+                </div>
+                <div class="card">
+                    <h3>Rush Mode</h3>
+                    <p class="price">$599</p>
+                    <p>6-hour turnaround</p>
+                    <a href="#questionnaire" class="btn">Get Started</a>
+                </div>
+                <div class="card" style="background-color: var(--primary-color); color: white;">
+                    <h3>Founder Mode</h3>
+                    <p class="price">$799</p>
+                    <p>4-hour turnaround</p>
+                    <p><strong>New!</strong> Limited Time Offer</p>
+                    <a href="#questionnaire" class="btn" style="background-color: white; color: var(--primary-color);">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="portfolio">
         <div class="container">
@@ -56,11 +193,59 @@
                     </div>
                     <h3>AI-Powered Pitch Deck Sample</h3>
                 </div>
-                <!-- ... (other portfolio items remain unchanged) ... -->
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Modern Tech Pitch Deck">
+                    <h3>Modern Tech Startup</h3>
+                </div>
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Classic Finance Pitch Deck">
+                    <h3>Classic Finance Presentation</h3>
+                </div>
+                <div class="card">
+                    <img src="/api/placeholder/300/200" alt="Bold Marketing Pitch Deck">
+                    <h3>Bold Marketing Strategy</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ... (remaining sections, footer, and script remain unchanged) ... -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            <div class="grid">
+                <div class="card">
+                    <p>"They perfectly captured our vision, even with our unique style requirements!"</p>
+                    <p>- Sarah J., Tech Startup Founder</p>
+                </div>
+                <div class="card">
+                    <p>"Flexible, responsive, and delivered beyond our expectations."</p>
+                    <p>- Michael R., Marketing Director</p>
+                </div>
+                <div class="card">
+                    <p>"Accommodated our last-minute changes without compromising quality."</p>
+                    <p>- Lisa T., Non-Profit Organization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="questionnaire">
+        <div class="container">
+            <h2>Pitch Deck Questionnaire</h2>
+            <form id="pitch-deck-form">
+                <!-- ... (questionnaire form content remains unchanged) ... -->
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VentureLabs.ai. All rights reserved.</p>
+    </footer>
+
+    <div id="live-chat">Live Chat</div>
+
+    <script>
+        // Add any JavaScript you need here
+    </script>
 </body>
 </html>
