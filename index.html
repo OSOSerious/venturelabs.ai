@@ -394,4 +394,82 @@
                         <div class="style-options">
                             <div class="style-option">
                                 <input type="checkbox" id="style-modern" name="style-modern">
-                                <label for="style-modern
+                                <label for="style-modern">Modern</label>
+                                </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-classic" name="style-classic">
+                                <label for="style-classic">Classic</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-minimalist" name="style-minimalist">
+                                <label for="style-minimalist">Minimalist</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-bold" name="style-bold">
+                                <label for="style-bold">Bold</label>
+                            </div>
+                            <div class="style-option">
+                                <input type="checkbox" id="style-textured" name="style-textured">
+                                <label for="style-textured">Textured</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Color Preferences</label>
+                        <div class="color-inputs">
+                            <div class="color-input">
+                                <input type="color" id="primary-color" name="primary-color">
+                                <label for="primary-color">Primary Color</label>
+                            </div>
+                            <div class="color-input">
+                                <input type="color" id="secondary-color" name="secondary-color">
+                                <label for="secondary-color">Secondary Color</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="style-description">Additional Style Details</label>
+                        <textarea id="style-description" name="style-description" placeholder="Describe any specific textures, patterns, or design elements you'd like (e.g., leather texture, gradient backgrounds, etc.)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Example Uploads</label>
+                        <div class="example-uploads">
+                            <input type="file" id="example-upload-1" name="example-upload-1" accept="image/*">
+                            <input type="file" id="example-upload-2" name="example-upload-2" accept="image/*">
+                            <input type="file" id="example-upload-3" name="example-upload-3" accept="image/*">
+                        </div>
+                        <div class="hint">Upload up to 3 images of pitch decks or designs you like. This helps us understand your preferences and reduces the need for revisions.</div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>8. Turnaround Time</h3>
+                    <select name="turnaround" required>
+                        <option value="">Select Turnaround Time</option>
+                        <option value="12">Standard: 12 hours - $199</option>
+                        <option value="8">Express: 8 hours - $399</option>
+                        <option value="6">Rush Mode: 6 hours - $599</option>
+                        <option value="4">Founder Mode: 4 hours - $799</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Submit Questionnaire</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VentureLabs.ai. All rights reserved.</p>
+    </footer>
+
+    <div id="live-chat">Live Chat</div>
+
+    <script>
+        document.querySelector('.slide-cover').addEventListener('click', function() {
+            this.parentElement.classList.add('active');
+        });
+
+        // You can add more JavaScript functionality here if needed
+    </script>
+</body>
+</html>
