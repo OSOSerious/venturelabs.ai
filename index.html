@@ -97,10 +97,101 @@
             height: auto;
             border-radius: 4px;
         }
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        .form-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .hint {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        .style-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .style-option {
+            display: flex;
+            align-items: center;
+        }
+        .style-option input {
+            margin-right: 0.5rem;
+        }
+        .color-inputs {
+            display: flex;
+            gap: 1rem;
+        }
+        .color-input {
+            display: flex;
+            align-items: center;
+        }
+        .color-input input[type="color"] {
+            margin-right: 0.5rem;
+        }
+        .example-uploads {
+            margin-top: 1rem;
+        }
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 4px;
+        }
+        .faq-answer {
+            display: none;
+            padding: 1rem;
+            background: white;
+            border-radius: 0 0 4px 4px;
+        }
+        #live-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
         .slide-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -110,7 +201,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Prevents interaction with the iframe */
+            pointer-events: none;
         }
         .slide-link {
             position: absolute;
@@ -137,7 +228,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('path-to-your-image.jpg');
+            background-image: url('/api/placeholder/300/200');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -149,15 +240,12 @@
             cursor: pointer;
             transition: opacity 0.3s ease;
         }
-        
         .slide-cover:hover {
             opacity: 0.8;
         }
-        
         .slide-container.active .slide-cover {
             display: none;
         }
-        /* ... (rest of the styles remain unchanged) ... */
     </style>
 </head>
 <body>
@@ -262,22 +350,48 @@
         <div class="container">
             <h2>Pitch Deck Questionnaire</h2>
             <form id="pitch-deck-form">
-                <!-- ... (questionnaire form content remains unchanged) ... -->
-            </form>
-        </div>
-    </section>
+                <div class="form-section">
+                    <h3>1. Company Overview</h3>
+                    <input type="text" name="company_name" placeholder="Company Name" required>
+                    <textarea name="company_vision" placeholder="What's your company's vision?" rows="3" required></textarea>
+                </div>
 
-    <footer>
-        <p>&copy; 2024 VentureLabs.ai. All rights reserved.</p>
-    </footer>
+                <div class="form-section">
+                    <h3>2. Problem & Solution</h3>
+                    <textarea name="problem" placeholder="Describe the main problem your product/service addresses." required></textarea>
+                    <textarea name="solution" placeholder="How does your product/service solve this problem?" required></textarea>
+                </div>
 
-    <div id="live-chat">Live Chat</div>
+                <div class="form-section">
+                    <h3>3. Market & Competition</h3>
+                    <textarea name="target_market" placeholder="Describe your ideal customer and market size." required></textarea>
+                    <textarea name="competitors" placeholder="List your main competitors and your competitive advantage." required></textarea>
+                </div>
 
-    <script>
-        // Add any JavaScript you need here
-        document.querySelector('.slide-cover').addEventListener('click', function() {
-            this.parentElement.classList.add('active');
-        });
-    </script>
-</body>
-</html>
+                <div class="form-section">
+                    <h3>4. Business Model & Traction</h3>
+                    <textarea name="business_model" placeholder="How do you make money? What's your pricing strategy?" required></textarea>
+                    <textarea name="traction" placeholder="Key metrics, achievements, or milestones reached so far." required></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h3>5. Team</h3>
+                    <textarea name="team_members" placeholder="List key team members with their roles and brief backgrounds." required></textarea>
+                    <input type="file" name="team_photos" accept="image/*" multiple>
+                    <div class="hint">Upload photos of key team members (optional).</div>
+                </div>
+
+                <div class="form-section">
+                    <h3>6. Financials & Funding</h3>
+                    <textarea name="financials" placeholder="Summarize your financial projections for the next 3-5 years."></textarea>
+                    <input type="text" name="funding_ask" placeholder="How much are you raising and what will it be used for?">
+                </div>
+
+                <div class="form-section">
+                    <h3>7. Pitch Deck Style Preferences</h3>
+                    <div class="form-group">
+                        <label>Preferred Style</label>
+                        <div class="style-options">
+                            <div class="style-option">
+                                <input type="checkbox" id="style-modern" name="style-modern">
+                                <label for="style-modern
